@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Grid : Simple grid for flexible layouts" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Grid</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/GrumpyWizards/Grid">View on GitHub</a>
+
+          <h1 id="project_title">Grid</h1>
+          <h2 id="project_tagline">Simple grid for flexible layouts</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/GrumpyWizards/Grid/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/GrumpyWizards/Grid/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p>Grid uses <a href="http://caniuse.com/#search=flex">flexbox</a> to produce flexible easy to use classes for rows and columns.</p>
+
+<h2>
+<a name="how-to-use" class="anchor" href="#how-to-use"><span class="octicon octicon-link"></span></a>How to use</h2>
+
+<h3>
+<a name="basic-grid" class="anchor" href="#basic-grid"><span class="octicon octicon-link"></span></a>Basic grid</h3>
+
+<pre><code>.grid {
+  display: flex;
+}
+.cell {
+  flex: 1;
+  box-sizing: border-box;
+}
+</code></pre>
+
+<h4>
+<a name="example" class="anchor" href="#example"><span class="octicon octicon-link"></span></a>Example</h4>
+
+<pre><code>&lt;div class="grid"&gt;
+  &lt;div class="cell"&gt;first&lt;/div&gt;
+  &lt;div class="cell"&gt;second&lt;/div&gt;
+  &lt;div class="cell"&gt;third&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>This will create a simple flexible row of cells.</p>
+
+<h3>
+<a name="widths" class="anchor" href="#widths"><span class="octicon octicon-link"></span></a>Widths</h3>
+
+<pre><code>.cell-20 {
+  flex: 0 0 20%;
+}
+</code></pre>
+
+<h4>
+<a name="example-1" class="anchor" href="#example-1"><span class="octicon octicon-link"></span></a>Example</h4>
+
+<pre><code>&lt;div class="grid"&gt;
+  &lt;div class="cell cell-20"&gt;first&lt;/div&gt;
+  &lt;div class="cell"&gt;second&lt;/div&gt;
+  &lt;div class="cell"&gt;third&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>In this example the first cell is 20% the width of the grid, the other two share the remaining space equally.</p>
+
+<h3>
+<a name="offsets" class="anchor" href="#offsets"><span class="octicon octicon-link"></span></a>Offsets</h3>
+
+<pre><code>.cell-offset-20 {
+  margin-left: 20%;
+}
+</code></pre>
+
+<h4>
+<a name="example-2" class="anchor" href="#example-2"><span class="octicon octicon-link"></span></a>Example</h4>
+
+<pre><code>&lt;div class="grid"&gt;
+  &lt;div class="cell cell-10"&gt;first&lt;/div&gt;
+  &lt;div class="cell cell-10 cell-offset-80"&gt;second&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>Adding <code>cell-offset-20</code> will add a <code>margin-left: 20%</code> to the cell, pushing it right.</p>
+
+<h3>
+<a name="wrapping" class="anchor" href="#wrapping"><span class="octicon octicon-link"></span></a>Wrapping</h3>
+
+<pre><code>.grid-wrap {
+  flex-wrap: wrap;
+}
+</code></pre>
+
+<h4>
+<a name="example-3" class="anchor" href="#example-3"><span class="octicon octicon-link"></span></a>Example</h4>
+
+<p>Here we have 2 cells, 50% and 66.6666% wide, but the grid is only 100% wide...</p>
+
+<pre><code>&lt;div class="grid"&gt;
+  &lt;div class="cell cell-50"&gt;first&lt;/div&gt;
+  &lt;div class="cell cell-66"&gt;second&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>this means the cells are now in control and have broken out of their confinment!</p>
+
+<pre><code>&lt;div class="grid grid-wrap"&gt;
+  &lt;div class="cell cell-50"&gt;first&lt;/div&gt;
+  &lt;div class="cell cell-66"&gt;second&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>Adding <code>grid-wrap</code> will push the second cell down under the first cell. <strong>Why not just make this default behaviour?</strong> Leaving this option to the developer provides more flexibility.</p>
+
+<h3>
+<a name="vertical-alignment" class="anchor" href="#vertical-alignment"><span class="octicon octicon-link"></span></a>Vertical alignment</h3>
+
+<pre><code>/* All cells */
+.grid-top {
+  align-items: flex-start;
+}
+.grid-center {
+  align-items: center;
+}
+.grid-bottom {
+  align-items: flex-end;
+}
+
+/* Individual cells */
+.cell-top {
+  align-self: flex-start;
+}
+.cell-center {
+  align-self: center;
+}
+.cell-bottom {
+  align-self: flex-end;
+}
+</code></pre>
+
+<h4>
+<a name="example-4" class="anchor" href="#example-4"><span class="octicon octicon-link"></span></a>Example</h4>
+
+<pre><code>&lt;div class="grid grid-bottom"&gt;
+  &lt;div class="cell cell-top"&gt;first&lt;/div&gt;
+  &lt;div class="cell cell-center"&gt;second&lt;/div&gt;
+  &lt;div class="cell"&gt;third&lt;/div&gt; &lt;!-- grid-bottom pushes this to the bottom --&gt;
+  &lt;div class="cell"&gt;fourth
+    &lt;br&gt;fourth
+    &lt;br&gt;fourth
+    &lt;br&gt;fourth
+    &lt;br&gt;fourth
+    &lt;br&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>Notice there are two vertical aligment rules being applied to this grid. A grid wide rule of <code>grid-bottom</code> that pushes everything to the bottom, and per cell alignment rules of <code>cell-top</code> and <code>cell-center</code> that vertically align the cells to the top and center of the grid respectively.</p>
+
+<h3>
+<a name="responsiveness" class="anchor" href="#responsiveness"><span class="octicon octicon-link"></span></a>Responsiveness</h3>
+
+<pre><code>@media (min-width: 24em) and (max-width: 48em) {
+  .grid-medium-fit &gt; .cell {
+    flex: 1;
+  }
+  .grid-medium-full &gt; .cell {
+    flex: 0 0 100%;
+    margin-left: 0;
+  }
+}
+</code></pre>
+
+<h4>
+<a name="example-5" class="anchor" href="#example-5"><span class="octicon octicon-link"></span></a>Example</h4>
+
+<p>Let's make this grid thing respond to different screen sizes...</p>
+
+<pre><code>&lt;div class="grid grid-small-full grid-medium-fit grid-large-full"&gt;
+  &lt;div class="cell cell-top"&gt;first&lt;/div&gt;
+  &lt;div class="cell cell-center"&gt;second&lt;/div&gt;
+  &lt;div class="cell"&gt;third&lt;/div&gt; &lt;!-- grid-bottom pushes this to bottom --&gt;
+  &lt;div class="cell"&gt;fourth
+    &lt;br&gt;fourth
+    &lt;br&gt;fourth
+    &lt;br&gt;fourth
+    &lt;br&gt;fourth
+    &lt;br&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<ul>
+<li>
+<code>.grid-small-full</code> this rule makes the cells full width but only when the screen is small</li>
+<li>
+<code>.grid-medium-fit</code> makes the cells share the space, but only for medium screens</li>
+<li>
+<code>.grid-large-full</code> turns it all into columns again</li>
+</ul><h3>
+<a name="utility-classes" class="anchor" href="#utility-classes"><span class="octicon octicon-link"></span></a>Utility classes</h3>
+
+<p>There are some handy "make visible when small" and "hide when large" rules for you to play with.</p>
+
+<pre><code>.visible-small {
+  display: none;
+}
+.hidden-medium {
+  display: none;
+}
+.hidden-large {
+  display: none;
+}
+</code></pre>
+
+<h5>
+<a name="credits" class="anchor" href="#credits"><span class="octicon octicon-link"></span></a>Credits</h5>
+
+<p><a href="http://philipwalton.github.io/solved-by-flexbox/demos/grids/">http://philipwalton.github.io/solved-by-flexbox/demos/grids/</a></p>
+
+<p><a href="http://ionicframework.com/docs/components/#grid">http://ionicframework.com/docs/components/#grid</a></p>
+
+<p><a href="http://getbootstrap.com/css/#grid">http://getbootstrap.com/css/#grid</a></p>
+
+<p><a href="http://css-tricks.com/snippets/css/a-guide-to-flexbox/">http://css-tricks.com/snippets/css/a-guide-to-flexbox/</a></p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Grid maintained by <a href="https://github.com/GrumpyWizards">GrumpyWizards</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-36978977-2");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+
+  </body>
+</html>
