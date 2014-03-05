@@ -63,7 +63,7 @@
 <h3>
 <a name="widths" class="anchor" href="#widths"><span class="octicon octicon-link"></span></a>Widths</h3>
 
-<pre><code>.cell-20 {
+<pre><code>.cell-width-20 {
   flex: 0 0 20%;
 }
 </code></pre>
@@ -72,7 +72,7 @@
 <a name="example-1" class="anchor" href="#example-1"><span class="octicon octicon-link"></span></a>Example</h4>
 
 <pre><code>&lt;div class="grid"&gt;
-  &lt;div class="cell cell-20"&gt;first&lt;/div&gt;
+  &lt;div class="cell cell-width-20"&gt;first&lt;/div&gt;
   &lt;div class="cell"&gt;second&lt;/div&gt;
   &lt;div class="cell"&gt;third&lt;/div&gt;
 &lt;/div&gt;
@@ -92,12 +92,12 @@
 <a name="example-2" class="anchor" href="#example-2"><span class="octicon octicon-link"></span></a>Example</h4>
 
 <pre><code>&lt;div class="grid"&gt;
-  &lt;div class="cell cell-10"&gt;first&lt;/div&gt;
-  &lt;div class="cell cell-10 cell-offset-80"&gt;second&lt;/div&gt;
+  &lt;div class="cell cell-width-10"&gt;first&lt;/div&gt;
+  &lt;div class="cell cell-width-10 cell-offset-80"&gt;second&lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
 
-<p>Adding <code>cell-offset-20</code> will add a <code>margin-left: 20%</code> to the cell, pushing it right.</p>
+<p>Adding <code>cell-offset-80</code> will add a <code>margin-left: 80%</code> to the cell, pushing it right.</p>
 
 <h3>
 <a name="wrapping" class="anchor" href="#wrapping"><span class="octicon octicon-link"></span></a>Wrapping</h3>
@@ -113,16 +113,16 @@
 <p>Here we have 2 cells, 50% and 66.6666% wide, but the grid is only 100% wide...</p>
 
 <pre><code>&lt;div class="grid"&gt;
-  &lt;div class="cell cell-50"&gt;first&lt;/div&gt;
-  &lt;div class="cell cell-66"&gt;second&lt;/div&gt;
+  &lt;div class="cell cell-width-50"&gt;first&lt;/div&gt;
+  &lt;div class="cell cell-width-66"&gt;second&lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
 
 <p>this means the cells are now in control and have broken out of their confinment!</p>
 
 <pre><code>&lt;div class="grid grid-wrap"&gt;
-  &lt;div class="cell cell-50"&gt;first&lt;/div&gt;
-  &lt;div class="cell cell-66"&gt;second&lt;/div&gt;
+  &lt;div class="cell cell-width-50"&gt;first&lt;/div&gt;
+  &lt;div class="cell cell-width-66"&gt;second&lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
 
