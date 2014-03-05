@@ -9,7 +9,12 @@
 .grid-wrap {
   flex-wrap: wrap;
 }
-.grid > .cell {
+@-moz-document url-prefix() { 
+  .grid-wrap {
+    display: inline-block;
+  }
+}
+.cell {
   flex: 1;
   box-sizing: border-box;
 }
