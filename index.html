@@ -60,6 +60,43 @@
 
 <p>This will create a simple flexible row of cells.</p>
 
+<pre><code>-------------------------------------
+| first    | second     | third     |
+-------------------------------------
+</code></pre>
+
+<h3>
+<a name="nesting" class="anchor" href="#nesting"><span class="octicon octicon-link"></span></a>Nesting</h3>
+
+<p>You can nest grids inside cells with relative ease...</p>
+
+<h4>
+<a name="example-1" class="anchor" href="#example-1"><span class="octicon octicon-link"></span></a>Example</h4>
+
+<pre><code>&lt;div class="grid"&gt;
+  &lt;div class="cell"&gt;
+    &lt;div class="grid"&gt;
+      &lt;div class="cell"&gt;first&lt;/div&gt;
+      &lt;div class="cell"&gt;second&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="grid"&gt;
+      &lt;div class="cell"&gt;third&lt;/div&gt;
+      &lt;div class="cell"&gt;fourth&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="cell"&gt;fifth&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>Little complicated to explain. This is what it should produce:</p>
+
+<pre><code>-------------------------------------
+| first      | second     | fifth   |
+--------------------------|         |
+| third      | fourth     |         |
+-------------------------------------
+</code></pre>
+
 <h3>
 <a name="widths" class="anchor" href="#widths"><span class="octicon octicon-link"></span></a>Widths</h3>
 
@@ -69,7 +106,7 @@
 </code></pre>
 
 <h4>
-<a name="example-1" class="anchor" href="#example-1"><span class="octicon octicon-link"></span></a>Example</h4>
+<a name="example-2" class="anchor" href="#example-2"><span class="octicon octicon-link"></span></a>Example</h4>
 
 <pre><code>&lt;div class="grid"&gt;
   &lt;div class="cell cell-width-20"&gt;first&lt;/div&gt;
@@ -80,6 +117,11 @@
 
 <p>In this example the first cell is 20% the width of the grid, the other two share the remaining space equally.</p>
 
+<pre><code>-------------------------------------
+| first        | second   | third   |
+-------------------------------------
+</code></pre>
+
 <h3>
 <a name="offsets" class="anchor" href="#offsets"><span class="octicon octicon-link"></span></a>Offsets</h3>
 
@@ -89,7 +131,7 @@
 </code></pre>
 
 <h4>
-<a name="example-2" class="anchor" href="#example-2"><span class="octicon octicon-link"></span></a>Example</h4>
+<a name="example-3" class="anchor" href="#example-3"><span class="octicon octicon-link"></span></a>Example</h4>
 
 <pre><code>&lt;div class="grid"&gt;
   &lt;div class="cell cell-width-10"&gt;first&lt;/div&gt;
@@ -98,6 +140,11 @@
 </code></pre>
 
 <p>Adding <code>cell-offset-80</code> will add a <code>margin-left: 80%</code> to the cell, pushing it right.</p>
+
+<pre><code>---------                  ----------
+| first |                  | second |
+---------                  ----------
+</code></pre>
 
 <h3>
 <a name="wrapping" class="anchor" href="#wrapping"><span class="octicon octicon-link"></span></a>Wrapping</h3>
@@ -108,7 +155,7 @@
 </code></pre>
 
 <h4>
-<a name="example-3" class="anchor" href="#example-3"><span class="octicon octicon-link"></span></a>Example</h4>
+<a name="example-4" class="anchor" href="#example-4"><span class="octicon octicon-link"></span></a>Example</h4>
 
 <p>Here we have 2 cells, 50% and 66.6666% wide, but the grid is only 100% wide...</p>
 
@@ -126,7 +173,17 @@
 &lt;/div&gt;
 </code></pre>
 
-<p>Adding <code>grid-wrap</code> will push the second cell down under the first cell. <strong>Why not just make this default behaviour?</strong> Leaving this option to the developer provides more flexibility.</p>
+<p>Adding <code>grid-wrap</code> will push the second cell down under the first cell.</p>
+
+<pre><code>-------------------
+| first           |
+-------------------
+-----------------------
+| second              |
+-----------------------
+</code></pre>
+
+<p><strong>Why not just make this default behaviour?</strong> Leaving this option to the developer provides more flexibility.</p>
 
 <h3>
 <a name="vertical-alignment" class="anchor" href="#vertical-alignment"><span class="octicon octicon-link"></span></a>Vertical alignment</h3>
@@ -155,7 +212,7 @@
 </code></pre>
 
 <h4>
-<a name="example-4" class="anchor" href="#example-4"><span class="octicon octicon-link"></span></a>Example</h4>
+<a name="example-5" class="anchor" href="#example-5"><span class="octicon octicon-link"></span></a>Example</h4>
 
 <pre><code>&lt;div class="grid grid-bottom"&gt;
   &lt;div class="cell cell-top"&gt;first&lt;/div&gt;
@@ -173,6 +230,19 @@
 
 <p>Notice there are two vertical aligment rules being applied to this grid. A grid wide rule of <code>grid-bottom</code> that pushes everything to the bottom, and per cell alignment rules of <code>cell-top</code> and <code>cell-center</code> that vertically align the cells to the top and center of the grid respectively.</p>
 
+<pre><code>------------                        -------------
+| first    |                        | fourth    |
+------------                        |           |
+                                    | fourth    |
+            -------------           |           |
+            | second    |           | fourth    |
+            -------------           |           |
+                                    | fourth    |
+                        -------------           |
+                        | third     | fourth    |
+                        -------------------------
+</code></pre>
+
 <h3>
 <a name="responsiveness" class="anchor" href="#responsiveness"><span class="octicon octicon-link"></span></a>Responsiveness</h3>
 
@@ -188,7 +258,7 @@
 </code></pre>
 
 <h4>
-<a name="example-5" class="anchor" href="#example-5"><span class="octicon octicon-link"></span></a>Example</h4>
+<a name="example-6" class="anchor" href="#example-6"><span class="octicon octicon-link"></span></a>Example</h4>
 
 <p>Let's make this grid thing respond to different screen sizes...</p>
 
